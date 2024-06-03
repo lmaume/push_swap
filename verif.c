@@ -6,7 +6,7 @@
 /*   By: lmaume <lmaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:19:32 by lmaume            #+#    #+#             */
-/*   Updated: 2024/06/03 10:52:58 by lmaume           ###   ########.fr       */
+/*   Updated: 2024/06/03 18:50:18 by lmaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ bool	is_valid(char *str)
 
 	i = 0;
 	counter = 0;
+	if (str == NULL)
+		return (true);
 	while (str[i] != '\0')
 	{
 		if (str[i] == '+' || str[i] == '-')
@@ -80,9 +82,7 @@ bool	is_valid(char *str)
 		else
 			return (false);
 	}
-	if (counter > 1)
-		return (false);
-	if (counter == 1 && str[1] == '\0')
+	if (counter > 1 || (counter == 1 && str[1] == '\0'))
 		return (false);
 	return (true);
 }

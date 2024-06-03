@@ -6,7 +6,7 @@
 /*   By: lmaume <lmaume@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 14:46:52 by lmaume            #+#    #+#             */
-/*   Updated: 2024/06/03 17:00:48 by lmaume           ###   ########.fr       */
+/*   Updated: 2024/06/03 18:44:56 by lmaume           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,13 @@ int	converter(char **tab, t_stack **head, t_stack **stackb)
 			i++;
 		}
 		else
-		{
-			destroyer_of_worlds((*head));
-			destroyer_of_worlds((*stackb));
-			return (-1);
-		}
+			break ;
+	}
+	if (error == 1 || is_valid(tab[i]) == false)
+	{
+		destroyer_of_worlds((*head));
+		destroyer_of_worlds((*stackb));
+		return (-1);
 	}
 	return (0);
 }
